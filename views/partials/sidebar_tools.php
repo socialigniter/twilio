@@ -1,0 +1,1 @@
+<li><a class="sidebar_icon" href="<?= base_url() ?>home/twilio"><img src="<?= $this_module_assets ?>twilio_24.png"><span>Twilio</span></a></li>
