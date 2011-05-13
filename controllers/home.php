@@ -18,7 +18,6 @@ class Home extends Dashboard_Controller
     
     function voicemails()
     {
-
 		$recordings_url 			= config_item('twilio_api_version')."/Accounts/".config_item('twilio_account_sid')."/Recordings";
 	    $recordings_response 		= $this->twilio->request($recordings_url, "GET", array("To" => config_item('twilio_phone_number')));
 	    $this->data['sub_title']	= 'Voicemails';
@@ -26,7 +25,6 @@ class Home extends Dashboard_Controller
 	    $this->data['responses'] 	= $recordings_response;
 	    	    
 	    $this->render();    
-    
     }
 
     function sms()
@@ -34,8 +32,18 @@ class Home extends Dashboard_Controller
 	    $this->data['sub_title']	= 'SMS';
 	    $this->data['responses'] 	= $this->twilio->request('/'.config_item('twilio_api_version').'/Accounts/'.config_item('twilio_account_sid').'/SMS/Messages', "GET", array("To" => config_item('twilio_phone_number')));
 	    	    	    	    
-	    $this->render();    
-    
+	    $this->render();
     }
+  
+  	function check_number()
+  	{
+
+		$avail_url 				= config_item('twilio_api_version')."/Accounts/".config_item('twilio_account_sid')."/AvailablePhoneNumbers/US/Local";
+	    $avail_response 		= $this->twilio->request($avail_url, "GET", array("InRegion" => "503"));
+  	
+  		echo '<pre>';
+  		print_r($avail_response);
+  		echo '</pre>';
+  	}
   
 }

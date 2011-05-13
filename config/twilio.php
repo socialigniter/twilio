@@ -16,4 +16,5 @@
 */
 
 // Twilio Settings
+$config['twilio_path']			= 'twilio/';
 $config['twilio_api_version'] 	= '2010-04-01';
