@@ -1,3 +1,5 @@
+INSERT INTO `settings` VALUES(NULL, 1, 'twilio', 'widgets', 'TRUE');
+INSERT INTO `settings` VALUES(NULL, 1, 'twilio', 'categories', 'TRUE');
 INSERT INTO `settings` VALUES(NULL, 1, 'twilio', 'enabled', 'TRUE');
 INSERT INTO `settings` VALUES(NULL, 1, 'twilio', 'account_sid', '');
 INSERT INTO `settings` VALUES(NULL, 1, 'twilio', 'auth_token', '');

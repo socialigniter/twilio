@@ -13,6 +13,8 @@
 * Description: 	Install values for Twilio App for Social Igniter 
 */
 /* Settings */
+$config['twilio_settings']['widgets'] 			= 'TRUE';
+$config['twilio_settings']['categories'] 		= 'FALSE';
 $config['twilio_settings']['enabled']			= 'TRUE';
 $config['twilio_settings']['account_sid'] 		= '';
 $config['twilio_settings']['auth_token'] 		= '';
