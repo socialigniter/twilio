@@ -34,6 +34,22 @@ class Home extends Dashboard_Controller
 	    	    	    	    
 	    $this->render();
     }
+    
+    function send_sms()
+    {
+
+		$from 		= '3104023675';
+		$to 		= '9712211599';
+		$message 	= 'This is a test...';
+
+		$response = $this->twilio->sms($from, $to, $message);
+
+		if($response->IsError)
+			echo 'Error: ' . $response->ErrorMessage;
+		else
+			echo 'Sent message to ' . $to;    
+    
+    }
   
   	function check_number()
   	{

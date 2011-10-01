@@ -18,3 +18,7 @@
 // Twilio Settings
 $config['twilio_path']			= 'twilio/';
 $config['twilio_api_version'] 	= '2010-04-01';
+
+$config['mode']   		 		= 'sandbox';
+$config['api_version']   		= '2010-04-01';
+$config['number']        		= '';
