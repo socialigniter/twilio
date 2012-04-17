@@ -39,7 +39,7 @@
 			$this->account_sid = config_item('twilio_account_sid');
 			$this->auth_token  = config_item('twilio_auth_token');
 			$this->api_version = '2010-04-01';
-			$this->number      = '';
+			$this->number      = config_item('twilio_phone_number');
 
 			//initialize the client
 			$this->_twilio = new TwilioRestClient($this->account_sid, $this->auth_token);
@@ -71,16 +71,18 @@
 		 */
 		public function sms($from, $to, $message)
 		{
-			$url = '/' . $this->api_version . '/Accounts/' . $this->account_sid . '/SMS/Messages';
+			$url = '/'.$this->api_version.'/Accounts/'.$this->account_sid.'/SMS/Messages';
 
 			$data = array(
-				        'From'   => $from,
+				        'From' => $from,
 				        'To'   => $to,
 				        'Body' => $message,
 			);
 
 			if ($this->mode == 'sandbox')
+			{
 				$data['From'] = $this->number;
+			}
 
 			return $this->_twilio->request($url, 'POST', $data);
 		}

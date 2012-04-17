@@ -6,7 +6,7 @@ class Home extends Dashboard_Controller
         parent::__construct();
         
 		$this->load->config('twilio');
-		$this->load->library('Twilio');        
+		$this->load->library('twilio');        
 
 		$this->data['page_title'] = 'Twilio';
 	}
@@ -31,26 +31,10 @@ class Home extends Dashboard_Controller
     {
 	    $this->data['sub_title']	= 'SMS';
 	    $this->data['responses'] 	= $this->twilio->request('/'.config_item('twilio_api_version').'/Accounts/'.config_item('twilio_account_sid').'/SMS/Messages', "GET", array("To" => config_item('twilio_phone_number')));
-	    	    	    	    
+
 	    $this->render();
     }
-    
-    function send_sms()
-    {
 
-		$from 		= '3104023675';
-		$to 		= '9712211599';
-		$message 	= 'This is a test...';
-
-		$response = $this->twilio->sms($from, $to, $message);
-
-		if($response->IsError)
-			echo 'Error: ' . $response->ErrorMessage;
-		else
-			echo 'Sent message to ' . $to;    
-    
-    }
-  
   	function check_number()
   	{
 
