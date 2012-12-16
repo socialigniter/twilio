@@ -42,7 +42,7 @@ class Home extends Dashboard_Controller
     function transcriptions()
     {
 		$transcriptions_url 		= config_item('twilio_api_version')."/Accounts/".config_item('twilio_account_sid')."/Transcriptions/REe9790b2556e38f8a3da456a8aa8b6f20";
-	    $transcriptions_response 	= $this->twilio->request($transcriptions_url, "GET"));
+	    $transcriptions_response 	= $this->twilio->request($transcriptions_url, "GET");
 
 	    echo '<pre>';
 	    print_r($transcriptions_response);
